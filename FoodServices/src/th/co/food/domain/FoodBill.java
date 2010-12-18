@@ -17,7 +17,7 @@ import javax.persistence.TemporalType;
 /**
  * The persistent class for the FOOD_BILL database table.
  * 
- */
+ */ 
 @Entity
 @Table(name="FOOD_BILL")
 public class FoodBill implements Serializable {
