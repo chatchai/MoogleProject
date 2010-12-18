@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+
+<beans>
+
+	
+	<!-- User's central feed -->
+
+	<!-- User's central dom4jdriver -->
+	<bean id="dom4jdriver" class="com.thoughtworks.xstream.io.xml.Dom4JDriver" />
+
+	<!-- User's central xstream -->
+	<bean id="xstream" class="com.thoughtworks.xstream.XStream">
+		<constructor-arg index="0">
+			<ref bean="dom4jdriver" />
+		</constructor-arg>
+	</bean>
+	<bean id="foodsResource" class="th.co.food.services.rest.resource.FoodsResource"
+		scope="prototype">
+		<property name="foodService" ref="foodService"></property>
+		<property name="xstream" ref="xstream"></property>
+	</bean>
+</beans>

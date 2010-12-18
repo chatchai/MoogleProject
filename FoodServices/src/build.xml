@@ -1,0 +1,35 @@
+<project>
+	<property name="target.dir.name" value="/usr/local/Work/Project/VProject" />
+	<property name="war.file.name" value="AoeGWT2.war" />
+	<property name="source.dir.name" value="../war" />
+	<property name="dest.dir.name" value="../WebContent" />
+
+
+	<target name="jar_vconnect_dto">
+		<!-- 
+		WebBoardServices/RestletServlet/webboardservices
+        <mkdir dir="target/jar/project"/>
+     -->
+		<jar destfile="../target/vconnectDTO.jar">
+			<!-- common -->
+			<fileset dir="../build/classes" includes="th/co/vlink/vconnect/dto/*.class" />
+			<fileset dir="../build/classes" includes="th/co/vlink/vconnect/constant/*.class" />
+		</jar>
+	</target>
+	<target name="aoe_war">
+		<delete includeemptydirs="true">
+			<fileset dir="${dest.dir.name}" includes="**/*" />
+		</delete>
+		<copy todir="${dest.dir.name}" overwrite="true">
+			<fileset dir="${source.dir.name}" />
+		</copy>
+		<war destfile="${target.dir.name}/${war.file.name}" webxml="${dest.dir.name}/WEB-INF/web.xml">
+			<!--   
+			 	<classes dir="${dest.dir.name}/WEB-INF/classes"/>
+			 	-->
+			<fileset dir="${dest.dir.name}">
+				<include name="**/*" />
+			</fileset>
+		</war>
+	</target>
+</project>
