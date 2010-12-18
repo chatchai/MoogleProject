@@ -78,7 +78,14 @@ public class FoodsResource  extends ServerResource {
 					ArrayList result = new ArrayList(size);
 					for (int i = 0; i < size; i++) {
 						FoodMenuDTO dto =new FoodMenuDTO(); 
-						dto.setFmId(1);
+						FoodMenu menu =(FoodMenu)l.get(i);
+						dto.setFmId(menu.getFmId());
+						dto.setFmCalories(menu.getFmCalories());
+						dto.setFmDetail(menu.getFmDetail());
+						dto.setFmPrice(menu.getFmPrice());
+						dto.setFmName(menu.getFmName());
+						dto.setFmPictureName(menu.getFmPictureName());
+						dto.setFmPicturePath(menu.getFmPicturePath());
 						result.add(dto);
 					}
 					resultDTO.setResultList(result);
@@ -114,8 +121,15 @@ public class FoodsResource  extends ServerResource {
 			int size = l.size();
 			ArrayList result = new ArrayList(size);
 			for (int i = 0; i < size; i++) {
+				FoodMenu menu =(FoodMenu)l.get(i);
 				FoodMenuDTO dto =new FoodMenuDTO(); 
-				dto.setFmId(1);
+				dto.setFmId(menu.getFmId());
+				dto.setFmCalories(menu.getFmCalories());
+				dto.setFmDetail(menu.getFmDetail());
+				dto.setFmPrice(menu.getFmPrice());
+				dto.setFmName(menu.getFmName());
+				dto.setFmPictureName(menu.getFmPictureName());
+				dto.setFmPicturePath(menu.getFmPicturePath());
 				result.add(dto);
 			}
 			resultDTO.setResultList(result);
